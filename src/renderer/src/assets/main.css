@@ -1,6 +1,30 @@
-header{
+.header{
   display: flex;
-  background-color: rgb(109, 109, 109);
+  background: #4a6a8c;
+  height: 100%;
+  align-items: center;
+  position: relative;
+
+
+background: linear-gradient(90deg, rgba(74, 106, 140, 1) 0%, rgba(9, 121, 65, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+
+.home{
+  margin-left: 15px;
+  border-radius: 8px;
+}
+
+.home-button{
+  border-radius: 8px;
+  border-color: transparent;
+  position: relative;
+  width: 2.5rem;
+  height: 2rem;
+}
+
+.home-button:hover{
+  background-color: #d1d1d1;
+  transition: 1ms ease;
 }
 
 .sesion{
@@ -12,3 +36,54 @@ header{
   position: absolute;
   right: 20%;
 }
+
+/* From Uiverse.io by alexruix */
+.group {
+  margin: 14px;
+ display: flex;
+ line-height: 28px;
+ align-items: center;
+ position: relative;
+ max-width: 300px;
+}
+.group:fullscreen{
+  max-width: 80rem;
+}
+
+.input {
+ width: 100%;
+ height: 40px;
+ line-height: 28px;
+ padding: 0 1rem;
+ padding-left: 2.5rem;
+ border: 2px solid transparent;
+ border-radius: 8px;
+ outline: none;
+ background-color: #f3f3f4;
+ color: #0d0c22;
+ transition: .3s ease;
+}
+
+.input::placeholder {
+ color: #9e9ea7;
+}
+
+.input:focus, input:hover {
+ outline: none;
+ border-color: rgba(76, 100, 234, 0.4);
+ background-color: #fff;
+ box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+
+.icon {
+ position: absolute;
+ left: 1rem;
+ fill: #9e9ea7;
+ width: 1rem;
+ height: 1rem;
+}
+
+
+
+
+

@@ -27,7 +27,8 @@
     "bootstrap-icons": "^1.13.1",
     "crypto-browserify": "^3.12.1",
     "electron-updater": "^6.3.9",
-    "lottie": "^0.0.1"
+    "lottie": "^0.0.1",
+    "react-router-dom": "^7.9.3"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config-prettier": "^3.0.0",
