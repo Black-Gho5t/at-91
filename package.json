@@ -23,8 +23,11 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.2",
     "@electron-toolkit/utils": "^4.0.0",
+    "axios": "^1.12.2",
+    "bootstrap-icons": "^1.13.1",
     "crypto-browserify": "^3.12.1",
-    "electron-updater": "^6.3.9"
+    "electron-updater": "^6.3.9",
+    "lottie": "^0.0.1"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config-prettier": "^3.0.0",
