@@ -1,0 +1,51 @@
+/* --- Iconos --- */
+.icon-box {
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  color: #333;
+  font-size: 22px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.icon-box:hover {
+  background: #f1f1f1;
+}
+
+/* --- Barra lateral --- */
+.sidebar {
+  position: fixed;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --- Barra inferior --- */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Oculta sidebar en móvil */
+  }
+}
+
+@media (min-width: 769px) {
+  .bottom-bar {
+    display: none; /* Oculta barra inferior en desktop */
+  }
+}

@@ -1,5 +1,3 @@
-// import Versions from './components/Versions'
-// import electronLogo from './assets/electron.svg'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from 'react'
 import Home from './pages/home'
