@@ -110,6 +110,26 @@ input:hover {
 
 .icon-empresas-link{
   background-color: #263541;
-  width: 100%;
+  position: absolute;
+  /* height: 100%;
+  width: 50%; */
+
+}
+
+.sidebar-main{
+  background-color: #6f8fa8;
+  max-width: 10rem;
+  height: 100%;
+  align-items: center;
+  display: grid;
+  background: #14004b;
+  height: 100%;
+  align-items: center;
+  position: relative;
+  grid-template-columns: auto auto 1fr auto;
+  grid-gap: 10px;
+  gap: 8px;
+  padding: 0 10px;
+  grid-auto-rows: minmax(100px, auto);
 
 }

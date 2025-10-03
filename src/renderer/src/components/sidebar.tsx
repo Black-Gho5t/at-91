@@ -5,7 +5,7 @@ export default function Sidebar(): React.JSX.Element {
     <div className='sidebar-main'>
       <li>
         <button className="icon-empresas-link">
-          ISSTEE
+          SEP
         </button>
       </li>
     </div>
