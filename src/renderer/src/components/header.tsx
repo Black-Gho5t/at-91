@@ -5,7 +5,7 @@ export default function Header(): React.JSX.Element {
     <header className="header">
 {/* option botton */}
       <div className="home">
-        <button className="button-global-header">
+        <button className="button-global-header sidebar-toggle">
           <div className="righleft">
             <svg className="w-[40px] h-[40px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" strokeLinecap="round" strokeWidth="1" d="M5 7h14M5 12h14M5 17h14" />
