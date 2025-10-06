@@ -6,8 +6,7 @@ export default function Sidebar(): React.JSX.Element {
     const sidebar: HTMLElement | null = document.querySelector(".sidebar");
     const searchForm: HTMLFormElement | null = document.querySelector(".search-form");
     const themeToggleBtn: HTMLButtonElement | null = document.querySelector(".theme-toggle");
-    const themeIcon: HTMLElement | null = themeToggleBtn?.querySelector(".theme-icon");
-    const menuLinks: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(".menu-link");
+    const themeIcon: HTMLElement = themeToggleBtn?.querySelector(".theme-icon");
 
     if (!sidebar || !searchForm || !themeToggleBtn || !themeIcon) return;
 
@@ -19,7 +18,7 @@ export default function Sidebar(): React.JSX.Element {
           ? "light_mode"
           : "dark_mode"
         : "dark_mode";
-    };
+    }
 
     // Tema guardado o preferencia del sistema
     const savedTheme: string | null = localStorage.getItem("theme");
@@ -36,8 +35,8 @@ export default function Sidebar(): React.JSX.Element {
     const handleThemeToggle = (): void => {
       const isDark: boolean = document.body.classList.toggle("dark-theme");
       localStorage.setItem("theme", isDark ? "dark" : "light");
-      updateThemeIcon();
-    };
+      updateThemeIcon()
+    }
 
     themeToggleBtn.addEventListener("click", handleThemeToggle);
 
@@ -83,19 +82,6 @@ export default function Sidebar(): React.JSX.Element {
       </nav> */}
 
       <aside className="sidebar collapsed">
-
-        {/* boton de ocultar */}
-{/*         
-        <div className="sidebar-header">
-          <img src="logo.png" alt="CodingNepal" className="header-logo" />
-          <button className="sidebar-toggle">
-            <span className="material-symbols-rounded"></span>
-          </button>
-        </div> */}
-
-
-        
-
         <div className="sidebar-content">
           <form action="#" className="search-form">
             <span className="material-symbols-rounded">search</span>
@@ -170,6 +156,71 @@ export default function Sidebar(): React.JSX.Element {
           sidebar, or switch between light and dark themes to personalize your
           experience.
         </p>
+
+        <h1 className="page-title">Dashboard Overview</h1>
+        <p className="card">
+          Welcome to your dashboard! Use the menu to navigate, toggle the
+          sidebar, or switch between light and dark themes to personalize your
+          experience.
+        </p>
+
+
+        <h1 className="page-title">Dashboard Overview</h1>
+        <p className="card">
+          Welcome to your dashboard! Use the menu to navigate, toggle the
+          sidebar, or switch between light and dark themes to personalize your
+          experience.
+        </p>
+
+
+        <h1 className="page-title">Dashboard Overview</h1>
+        <p className="card">
+          Welcome to your dashboard! Use the menu to navigate, toggle the
+          sidebar, or switch between light and dark themes to personalize your
+          experience.
+        </p>
+
+
+        <h1 className="page-title">Dashboard Overview</h1>
+        <p className="card">
+          Welcome to your dashboard! Use the menu to navigate, toggle the
+          sidebar, or switch between light and dark themes to personalize your
+          experience.
+        </p>
+
+
+        <h1 className="page-title">Dashboard Overview</h1>
+        <p className="card">
+          Welcome to your dashboard! Use the menu to navigate, toggle the
+          sidebar, or switch between light and dark themes to personalize your
+          experience.
+        </p>
+
+
+        <h1 className="page-title">Dashboard Overview</h1>
+        <p className="card">
+          Welcome to your dashboard! Use the menu to navigate, toggle the
+          sidebar, or switch between light and dark themes to personalize your
+          experience.
+        </p>
+
+
+        <h1 className="page-title">Dashboard Overview</h1>
+        <p className="card">
+          Welcome to your dashboard! Use the menu to navigate, toggle the
+          sidebar, or switch between light and dark themes to personalize your
+          experience.
+        </p>
+
+
+        <h1 className="page-title">Dashboard Overview</h1>
+        <p className="card">
+          Welcome to your dashboard! Use the menu to navigate, toggle the
+          sidebar, or switch between light and dark themes to personalize your
+          experience.
+        </p>
+
+
       </div>
     </div>
   );

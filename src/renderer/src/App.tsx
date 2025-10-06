@@ -7,11 +7,13 @@ function App(): React.JSX.Element {
   //const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
 
   return (
-     <Router>
+
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
     </Router>
+
   )
 }
 

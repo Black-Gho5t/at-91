@@ -2,6 +2,12 @@ body, html {
   margin: 0;
   padding: 0;
 }
+/* header: contener de header. container: contenedor de sidebar */
+.container-global{
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
 .header {
   display: grid;
   background: #263541;

@@ -5,7 +5,7 @@ import Sidebar from "@renderer/components/sidebar";
 
 export default function Home(): React.JSX.Element {
   return (
-    <div>
+    <div className="container-global">
       <Header />
       <Sidebar/>
     </div>
