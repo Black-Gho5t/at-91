@@ -1,14 +1,18 @@
 import React, { useEffect } from "react";
+import Icon from "@renderer/assets/icons";
+
 
 export default function Sidebar(): React.JSX.Element {
+
   useEffect(() => {
+
     const sidebarToggleBtns: NodeListOf<HTMLButtonElement> = document.querySelectorAll(".sidebar-toggle");
     const sidebar: HTMLElement | null = document.querySelector(".sidebar");
-    const searchForm: HTMLFormElement | null = document.querySelector(".search-form");
     const themeToggleBtn: HTMLButtonElement | null = document.querySelector(".theme-toggle");
-    const themeIcon: HTMLElement = themeToggleBtn?.querySelector(".theme-icon");
+    //const themeIcon: HTMLElement = themeToggleBtn?.querySelector(".theme-icon");
+    const themeIcon: HTMLElement | null = document.querySelector(".theme-icon")
 
-    if (!sidebar || !searchForm || !themeToggleBtn || !themeIcon) return;
+    if (!sidebar || !themeToggleBtn || !themeIcon) return
 
     // Actualiza el ícono de tema
     const updateThemeIcon = (): void => {
@@ -50,16 +54,6 @@ export default function Sidebar(): React.JSX.Element {
       btn.addEventListener("click", handleSidebarToggle)
     );
 
-    // Expandir sidebar al dar click en el buscador
-    const handleSearchClick = (): void => {
-      if (sidebar.classList.contains("collapsed")) {
-        sidebar.classList.remove("collapsed");
-        searchForm.querySelector<HTMLInputElement>("input")?.focus();
-      }
-    };
-
-    searchForm.addEventListener("click", handleSearchClick);
-
     // Sidebar expandida por defecto en pantallas grandes
     if (window.innerWidth > 768) sidebar.classList.remove("collapsed");
 
@@ -69,47 +63,35 @@ export default function Sidebar(): React.JSX.Element {
       sidebarToggleBtns.forEach((btn) =>
         btn.removeEventListener("click", handleSidebarToggle)
       );
-      searchForm.removeEventListener("click", handleSearchClick);
     };
   }, []);
 
   return (
     <div className="container">
-      {/* <nav className="site-nav">
-        <button className="sidebar-toggle">
-          <span className="material-symbols-rounded">menu</span>
-        </button>
-      </nav> */}
-
       <aside className="sidebar collapsed">
         <div className="sidebar-content">
-          <form action="#" className="search-form">
-            <span className="material-symbols-rounded">search</span>
-            <input type="search" placeholder="Search..." required />
-          </form>
-
           <ul className="menu-list">
             <li className="menu-item">
               <a href="#" className="menu-link active">
-                <span className="material-symbols-rounded">dashboard</span>
+                <Icon name="heard" />
                 <span className="menu-label">Dashboard</span>
               </a>
             </li>
             <li className="menu-item">
               <a href="#" className="menu-link">
-                <span className="material-symbols-rounded">insert_chart</span>
+                <Icon name="liston" />
                 <span className="menu-label">Analytics</span>
               </a>
             </li>
             <li className="menu-item">
               <a href="#" className="menu-link">
-                <span className="material-symbols-rounded">notifications</span>
+                <Icon name="institud" />
                 <span className="menu-label">Notifications</span>
               </a>
             </li>
             <li className="menu-item">
               <a href="#" className="menu-link">
-                <span className="material-symbols-rounded">star</span>
+                <Icon name="dashboard" />
                 <span className="menu-label">Favourites</span>
               </a>
             </li>
@@ -138,7 +120,7 @@ export default function Sidebar(): React.JSX.Element {
           <button className="theme-toggle">
             <div className="theme-label">
               <span className="theme-icon material-symbols-rounded">
-                dark_mode
+                <Icon name="moon" className="theme-icon material-symbols-rounded" />
               </span>
               <span className="theme-text">Dark Mode</span>
             </div>
@@ -150,77 +132,6 @@ export default function Sidebar(): React.JSX.Element {
       </aside>
 
       <div className="main-content">
-        <h1 className="page-title">Dashboard Overview</h1>
-        <p className="card">
-          Welcome to your dashboard! Use the menu to navigate, toggle the
-          sidebar, or switch between light and dark themes to personalize your
-          experience.
-        </p>
-
-        <h1 className="page-title">Dashboard Overview</h1>
-        <p className="card">
-          Welcome to your dashboard! Use the menu to navigate, toggle the
-          sidebar, or switch between light and dark themes to personalize your
-          experience.
-        </p>
-
-
-        <h1 className="page-title">Dashboard Overview</h1>
-        <p className="card">
-          Welcome to your dashboard! Use the menu to navigate, toggle the
-          sidebar, or switch between light and dark themes to personalize your
-          experience.
-        </p>
-
-
-        <h1 className="page-title">Dashboard Overview</h1>
-        <p className="card">
-          Welcome to your dashboard! Use the menu to navigate, toggle the
-          sidebar, or switch between light and dark themes to personalize your
-          experience.
-        </p>
-
-
-        <h1 className="page-title">Dashboard Overview</h1>
-        <p className="card">
-          Welcome to your dashboard! Use the menu to navigate, toggle the
-          sidebar, or switch between light and dark themes to personalize your
-          experience.
-        </p>
-
-
-        <h1 className="page-title">Dashboard Overview</h1>
-        <p className="card">
-          Welcome to your dashboard! Use the menu to navigate, toggle the
-          sidebar, or switch between light and dark themes to personalize your
-          experience.
-        </p>
-
-
-        <h1 className="page-title">Dashboard Overview</h1>
-        <p className="card">
-          Welcome to your dashboard! Use the menu to navigate, toggle the
-          sidebar, or switch between light and dark themes to personalize your
-          experience.
-        </p>
-
-
-        <h1 className="page-title">Dashboard Overview</h1>
-        <p className="card">
-          Welcome to your dashboard! Use the menu to navigate, toggle the
-          sidebar, or switch between light and dark themes to personalize your
-          experience.
-        </p>
-
-
-        <h1 className="page-title">Dashboard Overview</h1>
-        <p className="card">
-          Welcome to your dashboard! Use the menu to navigate, toggle the
-          sidebar, or switch between light and dark themes to personalize your
-          experience.
-        </p>
-
-
       </div>
     </div>
   );
