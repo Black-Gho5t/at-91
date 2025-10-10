@@ -1,8 +1,13 @@
 import React, { useEffect } from "react";
 import Icon from "@renderer/assets/icons";
+import Feed from './main-feed';
 
 
 export default function Sidebar(): React.JSX.Element {
+  // tarea de programacion
+  // leer el promedio de un alumno
+  // e imprimir si paso o no
+  // la materia
 
   useEffect(() => {
 
@@ -97,7 +102,7 @@ export default function Sidebar(): React.JSX.Element {
             </li>
             <li className="menu-item">
               <a href="#" className="menu-link">
-                <span className="material-symbols-rounded">storefront</span>
+                <Icon name="filter" />
                 <span className="menu-label">Products</span>
               </a>
             </li>
@@ -132,6 +137,7 @@ export default function Sidebar(): React.JSX.Element {
       </aside>
 
       <div className="main-content">
+        <Feed/>
       </div>
     </div>
   );

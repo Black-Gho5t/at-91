@@ -1,0 +1,38 @@
+.card-post {
+  background-color: #22303b;
+  padding: 1.5cap;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.header-card {
+  position: relative;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto auto ;
+  gap: calc(1/4);
+}
+
+.display-options {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 0.2fr;
+
+}
+
+.display-user {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+}
+
+button, .feed{
+  background: transparent;
+  border: 0;
+
+
+}
+
+button:hover{
+  cursor: pointer;
+}
