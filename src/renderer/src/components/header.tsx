@@ -1,7 +1,12 @@
-import React from 'react'
-import Icon from '../assets/icons';
+import { useState } from 'react'
+import Icon from '../assets/icons'
+import ProfileMenu from '@renderer/util/acountMenu'
 
 export default function Header(): React.JSX.Element {
+  const [showMenu, setShowMenu] = useState(false)
+
+  const toggleMenu = (): void => setShowMenu((prev) => !prev)
+
   return (
     <header className="header">
       {/* option botton */}
@@ -28,12 +33,13 @@ export default function Header(): React.JSX.Element {
       </div>
       {/* sesion options button */}
       <div className="sesion">
-        <button className="button-global-header">
+        <button className="button-global-header" onClick={toggleMenu}>
           <div className="righleft">
-            <Icon name="sesion"/>
+            <Icon name="sesion" />
           </div>
         </button>
+        {showMenu && <ProfileMenu />}
       </div>
     </header>
-  );
+  )
 }

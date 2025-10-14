@@ -15,7 +15,7 @@ export default function Feed(): React.JSX.Element {
           </div>
         </div>
         <div className="display-options">
-          <button className='feed'>
+          {/* <button className='feed'>
             <div className="options">
               <Icon name="pointsV" />
             </div>
@@ -24,7 +24,7 @@ export default function Feed(): React.JSX.Element {
             <div className="equis">
               <Icon name="equis" />
             </div>
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="text-post">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, autem sint nostrum explicabo nobis quod consequuntur voluptas, iure maiores omnis temporibus quo deleniti nemo natus. Fugiat ea iure eligendi earum?</div>

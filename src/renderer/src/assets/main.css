@@ -46,7 +46,7 @@ body, html {
 
 .sesion {
   margin-left: 15px;
-  position: static;
+  position: relative;
   justify-self: end;
 
 
@@ -500,4 +500,65 @@ body.dark-theme .theme-toggle-indicator {
   .container .main-content {
     padding: 30px 20px;
   }
+}
+
+
+/* login account menu */
+
+.login-main-container{
+  transition: all 4ms;
+  position: absolute;
+  background-color: #48566a;
+  padding: 1cap;
+  right: 1cap;
+  border-radius: 6px;
+  margin-top: 6px;
+  border: #6f8fa8 solid 1px;
+}
+
+.current-user-container{
+  background-color: #161d2b;
+  color: white;
+  padding: 7px;
+  border-radius: 6px;
+}
+
+.current-user-perfil{
+  width: 3cap;
+  height: 3cap;
+}
+
+.table-user{
+  align-items: center;
+}
+
+.name-current-user{
+  margin-left: 4px;
+}
+
+.email-user-table{
+  font-size: 14px;
+  color: gray;
+}
+
+.email-user-table:hover{
+  color: rgb(255, 255, 255);
+}
+
+.info-account-menu{
+  margin-top: 10px;
+  padding: 2px;
+  color: white;
+}
+
+.button-menu-user {
+  padding: 4px;
+  width: 100%;
+  color: white;
+  border-bottom: #6f8fa8 solid 1px;
+}
+
+.button-menu-user:hover{
+  background-color: #263541;
+  border-radius: 6px;
 }
