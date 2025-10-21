@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from 'react'
 import Home from './pages/home'
+import LoginPage from "./components/loginPage";
 
 //a
 function App(): React.JSX.Element {
@@ -11,6 +12,7 @@ function App(): React.JSX.Element {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </Router>
 
