@@ -15,7 +15,7 @@ class BottomNavBar extends StatelessWidget {
   ];
 
   const BottomNavBar({Key? key, this.currentIndex = 0, this.onTap})
-      : super(key: key);
+    : super(key: key);
 
   int _safeIndex(int i) => (i >= 0 && i < locations.length) ? i : 0;
 
@@ -25,11 +25,17 @@ class BottomNavBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       currentIndex: _safeIndex(currentIndex),
       items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Options'),
-        BottomNavigationBarItem(icon: Icon(Icons.add_box_outlined), label: 'Create'),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.add_box_outlined),
+          label: 'Create',
+        ),
         BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-        BottomNavigationBarItem(icon: Icon(Icons.notifications_none), label: 'Notifications'),
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.notifications_none),
+          label: 'Notifications',
+        ),
+        BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Options'),
       ],
       onTap: (index) {
         if (onTap != null) {

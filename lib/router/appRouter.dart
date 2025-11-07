@@ -1,19 +1,5 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
-
-import '../screens/homeScreen.dart';
-
-final appRoutes = GoRouter(
-  initialLocation: '/',
-  routes: [
-    GoRoute(
-      path: '/',
-      name: 'home',
-      builder: (context, state) => const HomeScreen(),
-    ),
-  ],
-);
-
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +9,19 @@ import '../screens/subPages/optionsScreen.dart';
 import '../screens/subPages/postScreen.dart';
 import '../screens/subPages/ProfileScreen.dart';
 import '../widgets/bottom_nav.dart';
+
+import '../screens/homeScreen.dart';
+
+// final appRoutes = GoRouter(
+//   initialLocation: '/',
+//   routes: [
+//     GoRoute(
+//       path: '/',
+//       name: 'home',
+//       builder: (context, state) => const HomeScreen(),
+//     ),
+//   ],
+// );
 
 int _locationToTabIndex(String location) {
   // Match the beginning of the location to determine selected tab
@@ -38,8 +37,8 @@ final appRoutes = GoRouter(
   routes: [
     ShellRoute(
       builder: (context, state, child) {
-        // Use GoRouter from context to get the active location reliably
-        final currentIndex = _locationToTabIndex(GoRouter.of(context).location);
+        // Use the GoRouterState's uri.path to get the active location reliably
+        final currentIndex = _locationToTabIndex(state.uri.path);
         return Scaffold(
           body: child,
           bottomNavigationBar: BottomNavBar(
