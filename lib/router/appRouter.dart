@@ -1,7 +1,5 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:flutter/material.dart';
 
 import '../screens/homeScreen.dart';
 import '../screens/subPages/notificationsScreen.dart';
@@ -9,8 +7,6 @@ import '../screens/subPages/optionsScreen.dart';
 import '../screens/subPages/postScreen.dart';
 import '../screens/subPages/ProfileScreen.dart';
 import '../widgets/bottom_nav.dart';
-
-import '../screens/homeScreen.dart';
 
 // final appRoutes = GoRouter(
 //   initialLocation: '/',

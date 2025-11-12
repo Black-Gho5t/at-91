@@ -7,15 +7,14 @@ class BottomNavBar extends StatelessWidget {
 
   // Public list of locations to map tabs to routes (order must match items)
   static const List<String> locations = [
-    '/',
-    '/options',
     '/create',
     '/profile',
+    '/home',
     '/notifications',
+    '/options',
   ];
 
-  const BottomNavBar({Key? key, this.currentIndex = 0, this.onTap})
-    : super(key: key);
+  const BottomNavBar({super.key, this.currentIndex = 0, this.onTap});
 
   int _safeIndex(int i) => (i >= 0 && i < locations.length) ? i : 0;
 
@@ -25,6 +24,7 @@ class BottomNavBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       currentIndex: _safeIndex(currentIndex),
       items: const [
+        //botones de navegacion
         BottomNavigationBarItem(
           icon: Icon(Icons.add_box_outlined),
           label: 'Create',

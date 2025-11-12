@@ -4,6 +4,7 @@ import '../models/storyModel.dart';
 import '../widgets/postCard.dart';
 import '../widgets/storyCircle.dart';
 import '../utils/colors.dart';
+import '../services/post_service.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
       userName: 'Your Story',
       avatarUrl: 'assets/user_avatar.png',
       isMyStory: true,
-    ), // Placeholder
+    ),
     StoryModel(
       id: 1,
       userName: 'Alex',
@@ -31,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       userName: 'Your Story',
       avatarUrl: 'assets/user_avatar.png',
       isMyStory: true,
-    ), // Placeholder
+    ),
     StoryModel(
       id: 3,
       userName: 'Alex',
@@ -42,45 +43,75 @@ class _HomeScreenState extends State<HomeScreen> {
       userName: 'Your Story',
       avatarUrl: 'assets/user_avatar.png',
       isMyStory: true,
-    ), // Placeholder
+    ),
   ];
 
-  // Datos simulados para las publicaciones
-  final List<PostModel> _posts = [
-    PostModel(
-      id: 1,
-      userName: 'AlexJohnson',
-      avatarUrl: 'https://i.pravatar.cc/150?img=68',
-      timeAgo: '2h ago',
-      content:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Just finished an amazing workout! Feeling great and ready to tackle the day. 💪',
-      likes: 24,
-      comments: 5,
-      shares: 3,
-    ),
-    PostModel(
-      id: 2,
-      userName: 'yaderalvarez',
-      avatarUrl: 'https://i.pravatar.cc/150?img=69', // Otro avatar
-      timeAgo: '2h ago',
-      content:
-          'Just finished an amazing workout! Feeling great and ready to tackle the day. 💪',
-      likes: 12,
-      comments: 2,
-      shares: 1,
-    ),
-    PostModel(
-      id: 3,
-      userName: 'AlexJohnson',
-      avatarUrl: 'https://i.pravatar.cc/150?img=68',
-      timeAgo: '4h ago',
-      content:
-          'Enjoying the beautiful sunset! What a perfect end to the day. 🌅',
-      likes: 50,
-      comments: 10,
-      shares: 7,
-    ),
-  ];
+  // Paginación
+  late List<PostModel> _posts = [];
+  int _currentPage = 1;
+  bool _isLoadingMore = false;
+  bool _hasMorePosts = true;
+  static const int _pageSize = 10;
+  late ScrollController _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    _scrollController.addListener(_onScroll);
+    _loadInitialPosts();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _loadInitialPosts() async {
+    final posts = await PostService.getPosts(page: 1, pageSize: _pageSize);
+    setState(() {
+      _posts = posts;
+      _currentPage = 1;
+      _hasMorePosts = posts.length == _pageSize;
+    });
+  }
+
+  void _onScroll() {
+    // Detectar cuando el usuario está cerca del final de la lista
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent - 500) {
+      if (!_isLoadingMore && _hasMorePosts) {
+        _loadMorePosts();
+      }
+    }
+  }
+
+  Future<void> _loadMorePosts() async {
+    if (_isLoadingMore) return;
+
+    setState(() => _isLoadingMore = true);
+
+    try {
+      final newPosts = await PostService.getPosts(
+        page: _currentPage + 1,
+        pageSize: _pageSize,
+      );
+
+      setState(() {
+        if (newPosts.isEmpty) {
+          _hasMorePosts = false;
+        } else {
+          _posts.addAll(newPosts);
+          _currentPage++;
+        }
+        _isLoadingMore = false;
+      });
+    } catch (e) {
+      setState(() => _isLoadingMore = false);
+      debugPrint('Error loading more posts: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -126,15 +157,27 @@ class _HomeScreenState extends State<HomeScreen> {
           ), // Separador visual
           // Feed de Publicaciones
           Expanded(
-            child: ListView.builder(
-              itemCount: _posts.length,
-              itemBuilder: (context, index) {
-                return PostCard(post: _posts[index]);
-              },
-            ),
+            child:
+                _posts.isEmpty
+                    ? const Center(child: CircularProgressIndicator())
+                    : ListView.builder(
+                      controller: _scrollController,
+                      itemCount: _posts.length + (_isLoadingMore ? 1 : 0),
+                      itemBuilder: (context, index) {
+                        // Mostrar indicador de carga al final
+                        if (index == _posts.length) {
+                          return const Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: Center(child: CircularProgressIndicator()),
+                          );
+                        }
+                        return PostCard(post: _posts[index]);
+                      },
+                    ),
           ),
         ],
       ),
+
       // NOTE: BottomNavigationBar has been moved to a shared widget / router shell.
     );
   }
